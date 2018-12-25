@@ -3,4 +3,4 @@
 
 
 ## 柱状图
-<img src='./GIF.gif' />
+<img src='./barChart.gif' />
