@@ -6,14 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    #canvas2{
-        border: 1px solid #000;
+    canvas{
+        display: block;
     }
     </style>
 </head>
 <body>
     <canvas id="canvas" width="600" height="500"></canvas>
+    <br/>
+    <canvas id='canvas2' width="600px" height="400px" style="border:1px solid #000000;"></canvas>
+    <button id='stop'>stop</button>
+    <button id='play'>continue</button>
+    <button id='replay'>replay</button>
+    <canvas id="canvas3" width='500' height="500"></canvas>
     <script src="./barChart.js"></script>
+    <script src="./drawLine.js"></script>
+    <script src="./load.js"></script>
     <script>
     var data = [
         {x:'2012',value:10},
@@ -25,8 +33,29 @@
         {x:'2018',value:220},
     ]
     var chart = new BarChart('canvas',data,{
-        title: '这里是图表的标题',
+        title: '可以把鼠标放到图上和点击',
     });
+    var point = [
+        {x:30,y:40},
+        {x:80,y:100},
+        {x:100,y:300},
+        {x:200,y:200},
+        {x:500,y:300}
+    ]
+    var canvas2 = document.getElementById('canvas2');
+    var drawLine = new Line(canvas2,point)
+    var stop = document.getElementById('stop')
+    stop.onclick=function(){
+        drawLine.stop()
+    }
+    var play = document.getElementById('play')
+    play.onclick=function(){
+        drawLine.play()
+    }
+    var replay = document.getElementById('replay')
+    replay.onclick=function(){
+        drawLine.replay()
+    }
     </script>
 </body>
 </html>
